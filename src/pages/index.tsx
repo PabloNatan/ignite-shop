@@ -32,7 +32,7 @@ export default function Home({ products }: HomeProps) {
         <title>Ignite Shop - Home</title>
       </Head>
       {products.map((product) => (
-        <Link href={`/product/${product.id}`} key={product.id}>
+        <Link href={`/product/${product.id}`} key={product.id} prefetch={false}>
           <Product className="keen-slider__slide">
             <Image src={product.imageUrl} width={520} height={480} alt="" />
 
