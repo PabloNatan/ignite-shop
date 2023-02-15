@@ -8,13 +8,14 @@ import "keen-slider/keen-slider.min.css";
 import { GetStaticProps } from "next";
 import Stripe from "stripe";
 import Link from "next/link";
+import Head from "next/head";
 
 interface HomeProps {
   products: {
     id: string;
     name: string;
     imageUrl: string;
-    price: number;
+    price: string;
   }[];
 }
 
@@ -27,6 +28,9 @@ export default function Home({ products }: HomeProps) {
   });
   return (
     <HomeContainer ref={sliderRef} className="keen-slider">
+      <Head>
+        <title>Ignite Shop - Home</title>
+      </Head>
       {products.map((product) => (
         <Link href={`/product/${product.id}`} key={product.id}>
           <Product className="keen-slider__slide">
